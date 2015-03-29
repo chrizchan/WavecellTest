@@ -1,0 +1,53 @@
+﻿@using System.Web.Optimization
+@model Wavecell.Models.LogOnModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-5 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Log In</h3>
+                </div>
+                <div class="panel-body">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        
+                        if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+                        {
+                            <div class="alert alert-danger">
+                                <a href="#" class="close" data-dismiss="alert">×</a>
+                                <span class="help-block">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                 </span>
+                            </div>
+                        }
+                        <fieldset>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Email", value = "" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", placeholder = "Password", type = "password", value = "" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <input type="submit" value="Log in" class="btn btn-lg btn-success btn-block" />
+
+                        </fieldset>
+                    }
+                </div>
+            </div>
+            <p class="text-center">Not registered yet? <a href=@Url.Action("Register") class="text-success">Register now!</a></p>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
