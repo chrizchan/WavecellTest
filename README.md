@@ -13,8 +13,8 @@ Configuration of webconfig
 3. Hardcoded value for:
   a. Source – “wavecellTest”
   b. Encoding – “Unicode”
-  c. ScheduledDateTime – “” (blank)
-  d. UMID – “” (blank)
+  c. ScheduledDateTime – "0"
+  d. UMID – "0"
   
 #Demo
   http://cford69-001-site1.smarterasp.net/
