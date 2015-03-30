@@ -1,0 +1,33 @@
+﻿@using Wavecell.Security
+
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown" id="accountmenu">
+
+            <a href="#" data-toggle="dropdown" class="dropdown-toggle">
+                <i class="fa fa-user fa-fw"></i>
+                    @if (Request.IsAuthenticated)
+                    {
+                        <text><strong>@((User as UserPrincipal).FirstName) @((User as UserPrincipal).LastName)</strong></text>
+                    }
+                <i class="fa fa-caret-down"></i>
+            </a>        
+        <ul class="dropdown-menu">
+            @if (Request.IsAuthenticated)
+            {
+                <li>
+                    <a href="@Url.RouteUrl("Default", new { action = "LogOff", controller = "Account" }, Request.Url.Scheme)"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+                @*<li>
+                    <a href="@Url.RouteUrl("Default", new { action = "LogOff", controller = "Account" }, Request.Url.Scheme)"><i class="fa fa-sign-out fa-fw"></i> Change Password</a>
+                </li>*@
+            }
+            else
+            {
+                <li>
+                    <a href="@Url.RouteUrl("Default", new { action = "LogIn", controller = "Account" }, Request.Url.Scheme)"><i class="fa fa-sign-in fa-fw"></i> Login</a>
+                </li>
+
+            }
+        </ul>
+    </li>
+</ul>
