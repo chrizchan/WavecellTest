@@ -6,7 +6,7 @@ This sample requires the following:
 Visual Studio 2010/2012/2013 MVC 4
 
 
-Configutation of webconfig
+Configuration of webconfig
 
 1. Database connection.
 2. Account/SubAccount/Password for Wavecell API.
@@ -16,5 +16,5 @@ Configutation of webconfig
   c. ScheduledDateTime – “” (blank)
   d. UMID – “” (blank)
   
-  #Demo
+#Demo
   http://cford69-001-site1.smarterasp.net/
